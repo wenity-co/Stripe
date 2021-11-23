@@ -63,7 +63,7 @@ class CreatePlanAction implements ActionInterface, GatewayAwareInterface, ApiAwa
 
             $plan = Plan::create($model->toUnsafeArrayWithoutLocal());
 
-            $model->replace($plan->__toArray(true));
+            $model->replace($plan->toArray());
         } catch (Error\Base $e) {
             $model->replace($e->getJsonBody());
         }
