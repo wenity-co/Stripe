@@ -74,7 +74,7 @@ class CreatePaymentIntentAction implements ActionInterface, ApiAwareInterface
                 'confirm' => true,
             ]));
 
-            $model->replace($charge->__toArray(true));
+            $model->replace($charge->toArray());
         } catch (Base $e) {
             $model->replace($e->getJsonBody());
         }
