@@ -62,7 +62,7 @@ class CreateSetupIntentAction implements ActionInterface, ApiAwareInterface
 
             $setup = SetupIntent::create($model->toUnsafeArrayWithoutLocal());
 
-            $model->replace($setup->__toArray(true));
+            $model->replace($setup->toArray());
         } catch (Base $e) {
             $model->replace($e->getJsonBody());
         }

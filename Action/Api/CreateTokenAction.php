@@ -59,7 +59,7 @@ class CreateTokenAction implements ActionInterface, GatewayAwareInterface, ApiAw
 
             $token = Token::create($model->toUnsafeArrayWithoutLocal());
 
-            $model->replace($token->__toArray(true));
+            $model->replace($token->toArray());
         } catch (Error\Base $e) {
             $model->replace($e->getJsonBody());
         }

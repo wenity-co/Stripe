@@ -68,7 +68,7 @@ class ConfirmPaymentIntentAction implements ActionInterface, ApiAwareInterface
             $intent = PaymentIntent::retrieve($model['payment_intent']);
             $intent->confirm();
 
-            $model->replace($intent->__toArray(true));
+            $model->replace($intent->toArray());
         } catch (Base $e) {
             $model->replace($e->getJsonBody());
         }
